@@ -1,0 +1,5 @@
+/**
+Realiza una llamada a devops a la rama mmaster
+*/
+@Library('devops@master') _
+pipelineGeneral(scmUrl: 'https://github.com/JoseCorreaV/devops.git')
