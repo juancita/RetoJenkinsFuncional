@@ -5,12 +5,11 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:alpine
+USER root 
+FROM nginx:alpine as nginx-build
 ADD ./config/nginx.conf /etc/nginx/conf.d/nginx.conf
+
+USER nginx
 COPY --from=build /app/dist /var/www/app/
 EXPOSE 5174
 CMD ["nginx", "-g", "daemon off;"]
-
-RUN docker exec -it -u root jenkins /bin/bash && \
-   chgrp docker /var/run/docker.sock && \
-   chmod 660 /var/run/docker.sock
