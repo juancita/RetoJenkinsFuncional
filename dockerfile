@@ -1,3 +1,17 @@
+# Utiliza una imagen base de Docker
+FROM docker:20.10-dind
+
+# Establece el usuario root
+USER root
+
+# Cambia los permisos del socket de Docker
+RUN chgrp docker /var/run/docker.sock && \
+    chmod 660 /var/run/docker.sock
+
+# Cambia el usuario de nuevo a uno no privilegiado
+USER jenkins
+
+# Continúa con el resto del Dockerfile
 FROM node:18 as build
 WORKDIR /app
 COPY package*.json ./
