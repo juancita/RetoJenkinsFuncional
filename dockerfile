@@ -1,15 +1,12 @@
-# Utiliza una imagen base de Docker
-FROM docker:20.10-dind
+FROM ubuntu:20.04
 
-# Establece el usuario root
-USER root
+# Copia el socket de Docker al directorio /tmp dentro del contenedor
+COPY /var/run/docker.sock /tmp/docker.sock
 
-# Cambia los permisos del socket de Docker
-RUN chgrp docker /var/run/docker.sock && \
-    chmod 660 /var/run/docker.sock
+# Cambia el propietario y el grupo del socket de Docker
+RUN chown root:root /tmp/docker.sock && \
+    chmod 660 /tmp/docker.sock
 
-# Cambia el usuario de nuevo a uno no privilegiado
-USER jenkins
 
 # Continúa con el resto del Dockerfile
 FROM node:18 as build
