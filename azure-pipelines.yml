@@ -10,17 +10,6 @@ pool:
   name: SonarAzure
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
-
-
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'ServiceConnectSonarCloud'
@@ -33,7 +22,7 @@ steps:
 
 - task: SonarCloudAnalyze@1
   inputs:
-    jdkversion: 'JAVA_HOME_17_X64'
+    jdkversion: 'JAVA_HOME'
 
 - task: SonarCloudPublish@1
   inputs:
