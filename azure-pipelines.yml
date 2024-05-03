@@ -15,7 +15,10 @@ steps:
     SonarCloud: 'ServiceConnectSonarCloud'
     organization: 'sonarcloudjc'
     scannerMode: 'CLI'
-    configMode: 'file'
+    configMode: 'manual'
+    cliProjectKey: 'sonarcloudjc_manual'
+    cliProjectName: 'manual'
+    cliSources: '.'
 
 - task: SonarCloudAnalyze@1
   inputs:
