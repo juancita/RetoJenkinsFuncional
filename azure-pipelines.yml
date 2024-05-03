@@ -20,9 +20,9 @@ steps:
     cliProjectName: 'manual'
     cliSources: '.'
 
-- task: SonarCloudAnalyze@1
-  inputs:
-    jdkversion: 'JAVA_HOME_21_X64'
+#- task: SonarCloudAnalyze@1
+#  inputs:
+#    jdkversion: 'JAVA_HOME_21_X64'
 
 
 - task: SonarCloudPublish@1
