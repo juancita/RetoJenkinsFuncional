@@ -14,9 +14,8 @@ steps:
   inputs:
     SonarCloud: 'ServiceConnectSonarCloud'
     organization: 'sonarcloudjc'
-    scannerMode: 'MSBuild'
-    projectKey: 'sonarcloudjc_manual'
-    projectName: 'manual'
+    scannerMode: 'CLI'
+    configMode: 'file'
 
 - task: SonarCloudAnalyze@1
   inputs:
