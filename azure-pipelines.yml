@@ -14,15 +14,14 @@ steps:
   inputs:
     SonarCloud: 'ServiceConnectSonarCloud'
     organization: 'sonarcloudjc'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'sonarcloudjc_manual'
-    cliProjectName: 'manual'
-    cliSources: '.'
+    scannerMode: 'MSBuild'
+    projectKey: 'sonarcloudjc_manual'
+    projectName: 'manual'
 
 - task: SonarCloudAnalyze@1
   inputs:
     jdkversion: 'JAVA_HOME'
+
 
 - task: SonarCloudPublish@1
   inputs:
