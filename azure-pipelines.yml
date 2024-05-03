@@ -13,13 +13,12 @@ steps:
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'ServiceConnectSonarCloud'
-    organization: 'sonarcloudjc'
+    organization: 'josecorreadevops'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'sonarcloudjc_manual'
-    cliProjectName: 'manual'
+    cliProjectKey: 'josecorreadevops_analisis-sonar'
+    cliProjectName: 'analisis-sonar'
     cliSources: '.'
-
 - task: SonarCloudAnalyze@1
   inputs:
     jdkversion: 'JAVA_HOME_17_X64'
