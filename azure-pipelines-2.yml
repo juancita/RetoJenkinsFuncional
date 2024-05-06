@@ -14,8 +14,11 @@ steps:
   inputs:
     SonarCloud: 'ServiceConnectSonarCloud'
     organization: 'josecorreadevops'
-    scannerMode: 'MSBuild'
-    projectKey: 'josecorreadevops_analisis-sonar'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'josecorreadevops_analisis-sonar'
+    cliProjectName: 'analisis-sonar'
+    cliSources: '.'
     extraProperties: |
       sonar-scanner.bat \ 
            -D"sonar.organization=josecorreadevops" \
