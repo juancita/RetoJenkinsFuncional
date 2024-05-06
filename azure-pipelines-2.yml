@@ -1,0 +1,19 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- script: |
+    sonar-scanner.bat \ 
+      -D"sonar.organization=josecorreadevops" \
+      -D"sonar.projectKey=josecorreadevops_analisis-sonar" \
+      -D"sonar.sources=." \
+      -D"sonar.host.url=https://sonarcloud.io"
