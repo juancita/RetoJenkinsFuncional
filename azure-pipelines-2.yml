@@ -16,7 +16,7 @@ steps:
     cliSources: '.'
 
 - script: |
-    sonar-scanner.bat \ 
+     \ 
       -D"sonar.organization=josecorreadevops" \
       -D"sonar.projectKey=josecorreadevops_analisis-sonar" \
       -D"sonar.sources=." \
